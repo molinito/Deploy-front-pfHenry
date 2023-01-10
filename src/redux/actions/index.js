@@ -43,7 +43,7 @@ export const GET_USER_BY_EMAIL = "GET_USER_BY_EMAIL";
 export const getUserByEmail = (payload) => {
   return async function (dispatch) {
     const response = await axios.post(
-      "http://localhost:3001/user/email",
+      "/user/email",
       payload
     );
     return dispatch({
@@ -55,7 +55,7 @@ export const getUserByEmail = (payload) => {
 
 export const getAllProducts = () => {
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/product");
+    const response = await axios.get("/product");
     return dispatch({
       type: GET_ALL_PRODUCTS,
       payload: response.data.products,
@@ -65,7 +65,7 @@ export const getAllProducts = () => {
 
 export const getCategories = () => {
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/category");
+    const response = await axios.get("/category");
     return dispatch({
       type: GET_CATEGORIES,
       payload: response.data.categories,
@@ -75,7 +75,7 @@ export const getCategories = () => {
 
 export const getProductDetail = (id) => {
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/product/" + id);
+    const response = await axios.get("/product/" + id);
     return dispatch({
       type: GET_PRODUCT_DETAIL,
       payload: response.data,
@@ -140,7 +140,7 @@ export const ClearDetail = () => {
 
 export const createProduct = (payload) => {
   return async function (dispatch) {
-    const response = await axios.post("http://localhost:3001/product", payload);
+    const response = await axios.post("/product", payload);
     return response;
   };
 };
@@ -149,7 +149,7 @@ export const updateProduct = (payload) => {
   let id = payload.id;
   return async function (dispatch) {
     const response = await axios.put(
-      `http://localhost:3001/product/${id}`,
+      `/product/${id}`,
       payload
     );
     return dispatch({
@@ -161,7 +161,7 @@ export const updateProduct = (payload) => {
 
 export const deleteProduct = (id) => {
   return async function (dispatch) {
-    const response = await axios.delete("http://localhost:3001/product/" + id);
+    const response = await axios.delete("/product/" + id);
     return dispatch({
       type: DELETE_PRODUCT,
       payload: response.data,
@@ -187,7 +187,7 @@ export const filterCategory = (payload) => {
 export const getFavorites = (userEmail) => {
   return async function (dispatch) {
     const response = await axios.get(
-      `http://localhost:3001/favorites/?userEmail=${userEmail}`
+      `/favorites/?userEmail=${userEmail}`
     );
     return dispatch({
       type: GET_FAVORITES,
@@ -199,7 +199,7 @@ export const getFavorites = (userEmail) => {
 export const addFavorite = (userEmail, productId) => {
   return async function (dispatch) {
     const response = await axios.post(
-      `http://localhost:3001/favorites/?userEmail=${userEmail}&productId=${productId}`
+      `/favorites/?userEmail=${userEmail}&productId=${productId}`
     );
     return dispatch({
       type: ADD_FAVORITE,
@@ -211,7 +211,7 @@ export const addFavorite = (userEmail, productId) => {
 export const removeFavorite = (userEmail, productId) => {
   return async function (dispatch) {
     const response = await axios.delete(
-      `http://localhost:3001/favorites/?userEmail=${userEmail}&productId=${productId}`
+      `/favorites/?userEmail=${userEmail}&productId=${productId}`
     );
     return dispatch({
       type: REMOVE_FAVORITE,
@@ -225,7 +225,7 @@ export const removeFavorite = (userEmail, productId) => {
 export const getFavoritesGmail = (userEmail) => {
   return async function (dispatch) {
     const response = await axios.get(
-      `http://localhost:3001/gmailfavs?userEmail=${userEmail}`
+      `/gmailfavs?userEmail=${userEmail}`
     );
     return dispatch({
       type: GET_FAVORITES_GMAIL,
@@ -237,7 +237,7 @@ export const getFavoritesGmail = (userEmail) => {
 export const addFavoriteGmail = (userEmail, productId) => {
   return async function (dispatch) {
     const response = await axios.post(
-      `http://localhost:3001/gmailfavs?userEmail=${userEmail}&productId=${productId}`
+      `/gmailfavs?userEmail=${userEmail}&productId=${productId}`
     );
     return dispatch({
       type: ADD_FAVORITE_GMAIL,
@@ -249,7 +249,7 @@ export const addFavoriteGmail = (userEmail, productId) => {
 export const removeFavoriteGmail = (userEmail, productId) => {
   return async function (dispatch) {
     const response = await axios.delete(
-      `http://localhost:3001/gmailfavs?userEmail=${userEmail}&productId=${productId}`
+      `/gmailfavs?userEmail=${userEmail}&productId=${productId}`
     );
     return dispatch({
       type: REMOVE_FAVORITE_GMAIL,
@@ -260,7 +260,7 @@ export const removeFavoriteGmail = (userEmail, productId) => {
 // ---------------------------
 export const getAllUsers = () => {
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/user/");
+    const response = await axios.get("/user/");
     return dispatch({
       type: GET_ALL_USERS,
       payload: response.data,
@@ -270,7 +270,7 @@ export const getAllUsers = () => {
 
 export const getUserById = (id) => {
   return async function (dispatch) {
-    const response = await axios.get(`http://localhost:3001/user/${id}`);
+    const response = await axios.get(`/user/${id}`);
     return dispatch({
       type: GET_USER_BY_ID,
       payload: response.data,
@@ -279,7 +279,7 @@ export const getUserById = (id) => {
 };
 export function createUser(payload) {
   return async function (dispatch) {
-    const info = await axios.post("http://localhost:3001/user", payload);
+    const info = await axios.post("/user", payload);
     dispatch({
       type: CREATE_USER,
       payload: info.data,
@@ -289,7 +289,7 @@ export function createUser(payload) {
 
 export const checkout = (payload) => {
   return async function (dispatch) {
-    const response = await axios.post("http://localhost:3001/stripe", payload);
+    const response = await axios.post("/stripe", payload);
     return dispatch({
       type: PAYMENT_STRIPE,
       payload: response.data,
@@ -338,7 +338,7 @@ export const loginUser = (payload) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/login/login",
+        "/login/login",
         payload
       );
 
@@ -377,7 +377,7 @@ export const logoutUser = () => {
 
 export const userProfile = () => {
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/login/profile");
+    const response = await axios.get("/login/profile");
     dispatch({
       type: GET_USER_PROFILE,
       payload: response.data.token,
@@ -395,7 +395,7 @@ export const decrementStock = (productId) => {
 export const createCategories = (payload) => {
   console.log(payload);
   return async function (dispatch) {
-    const response = await axios.post("http://localhost:3001/category", {
+    const response = await axios.post("/category", {
       name: payload.name,
     });
     return response;
@@ -406,7 +406,7 @@ export const updateCategory = (payload) => {
   let id = payload.id;
   return async function (dispatch) {
     const response = await axios.put(
-      `http://localhost:3001/category/${id}`,
+      `/category/${id}`,
       payload
     );
     dispatch({
@@ -418,7 +418,7 @@ export const updateCategory = (payload) => {
 
 export const deleteCategory = (id) => {
   return async function (dispatch) {
-    const response = await axios.delete("http://localhost:3001/category/" + id);
+    const response = await axios.delete("/category/" + id);
     dispatch({
       type: DELETE_CATEGORY,
       payload: response.data,
@@ -430,7 +430,7 @@ export const updateUser = (id, updatedUser) => {
   return async function (dispatch) {
     try {
       const response = await axios.put(
-        `http://localhost:3001/user/${id}`,
+        `/user/${id}`,
         updatedUser
       );
       dispatch({
@@ -448,7 +448,7 @@ export const updateUser = (id, updatedUser) => {
 // DELETE USER
 export const deleteUser = (id) => {
   return async function (dispatch) {
-    const response = await axios.delete(`http://localhost:3001/user/${id}`);
+    const response = await axios.delete(`/user/${id}`);
     return dispatch({
       type: DELETE_USER,
       payload: response.data,
@@ -459,7 +459,7 @@ export const deleteUser = (id) => {
 export const addGmailuser = (payload) => {
   return async function (dispatch) {
     const response = await axios.post(
-      "http://localhost:3001/gmailuser",
+      "/gmailuser",
       payload
     );
     return response;
