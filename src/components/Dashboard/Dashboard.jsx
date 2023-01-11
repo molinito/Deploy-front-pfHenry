@@ -83,7 +83,7 @@ function Dashboard() {
 
                     <div className="d-flex my-4 flex-wrap" style={{justifyContent:"space-around"}}>
                         <div className="box me-4 my-1 bg-light">
-                            <img src="https://www.freepnglogos.com/uploads/box-png/cardboard-box-brown-vector-graphic-pixabay-2.png"
+                            <img src="https://e7.pngegg.com/pngimages/72/531/png-clipart-profit-sales-computer-icons-revenue-customs-text-service.png"
                                 alt=""/>
                             <div className="d-flex align-items-center mt-2">
                                 <div className="tag">Orders placed</div>
@@ -91,7 +91,7 @@ function Dashboard() {
                             </div>
                         </div>
                         <div className="box me-4 my-1 bg-light">
-                            <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-campus-recreation-university-nebraska-lincoln-30.png"
+                            <img src="https://e7.pngegg.com/pngimages/603/776/png-clipart-shopping-cart-shopping-cart.png"
                                 alt=""/>
                             <div className="d-flex align-items-center mt-2">
                                 <div className="tag"></div>
@@ -103,7 +103,7 @@ function Dashboard() {
                             </div>
                         </div>
                         <div className="box me-4 my-1 bg-light">
-                            <img src="https://www.freepnglogos.com/uploads/love-png/love-png-heart-symbol-wikipedia-11.png"
+                            <img src="https://e7.pngegg.com/pngimages/267/289/png-clipart-heart-drawing-heart-shape-heart-illustration-love-heart.png"
                                 alt=""/>
                             <div className="d-flex align-items-center mt-2">
                                 <div className="tag"></div>
